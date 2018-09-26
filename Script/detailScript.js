@@ -11,7 +11,7 @@ $(".activityContent ul.list-inline a").each(function () {
 
             chrome.storage.local.get({
                 ProgramAuto: false,
-                ProgramDate: '2018-06-01'
+                ProgramDate: '2018-12-31'
             }, items => {
                 if (items.ProgramAuto) {
                     let dstr = items.ProgramDate.replace(/-/g, "/")

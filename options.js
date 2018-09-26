@@ -22,7 +22,7 @@ function save_options() {
 function restore_options() {
     chrome.storage.local.get({
         ProgramAuto: false,
-        ProgramDate: '2018-06-01',
+        ProgramDate: '2018-12-31',
         TicketNumber: 0
     }, items => {
         console.log(items);
