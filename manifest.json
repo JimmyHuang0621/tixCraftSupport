@@ -28,6 +28,16 @@
 		},
 		{
 			"matches": [
+				"https://tixcraft.com/activity/game/*"
+			],
+			"run_at": "document_end",
+			"js": [
+				"jquery.min.js",
+				"Script/gameScript.js"
+			]
+		},
+		{
+			"matches": [
 				"https://tixcraft.com/ticket/area/*"
 			],
 			"run_at": "document_end",
