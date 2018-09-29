@@ -1,14 +1,18 @@
 // Saves options to chrome.storage
 function save_options() {
-    var pauto = document.getElementById('pauto').checked;
-    var pdate = document.getElementById('pdate').value;
-    var tselect = document.getElementById("tnum");
-    var tnum = tselect.options[tselect.selectedIndex].value;
+    var ProgramAuto = document.getElementById('ProgramAuto').checked;
+    var ProgramDate = document.getElementById('ProgramDate').value;
+    var ProgramAreaAuto = document.getElementById('ProgramAreaAuto').checked;
+    var ProgramArea = document.getElementById('ProgramArea').value;
+    var tselect = document.getElementById("TicketNumber");
+    var TicketNumber = tselect.options[tselect.selectedIndex].value;
 
     chrome.storage.local.set({
-        ProgramAuto: pauto,
-        ProgramDate: pdate,
-        TicketNumber: tnum
+        ProgramAuto,
+        ProgramDate,
+        ProgramAreaAuto,
+        ProgramArea,
+        TicketNumber
     }, function () {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -23,12 +27,16 @@ function restore_options() {
     chrome.storage.local.get({
         ProgramAuto: false,
         ProgramDate: '2018-12-31',
+        ProgramAreaAuto: false,
+        ProgramArea: 'A',
         TicketNumber: 0
     }, items => {
         console.log(items);
-        document.getElementById('pauto').checked = items.ProgramAuto;
-        document.getElementById('pdate').value = items.ProgramDate;
-        document.getElementById("tnum").selectedIndex = items.TicketNumber;
+        document.getElementById('ProgramAuto').checked = items.ProgramAuto;
+        document.getElementById('ProgramDate').value = items.ProgramDate;
+        document.getElementById('ProgramAreaAuto').checked = items.ProgramAreaAuto;
+        document.getElementById('ProgramArea').value = items.ProgramArea;
+        document.getElementById("TicketNumber").selectedIndex = items.TicketNumber;
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
