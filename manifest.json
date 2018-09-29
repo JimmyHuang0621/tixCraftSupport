@@ -1,7 +1,7 @@
 {
 	"name": "tixCraft Support",
 	"description": "拓元輔助程式",
-	"version": "1.4",
+	"version": "1.4.1",
 	"permissions": [
 		"activeTab",
 		"storage"

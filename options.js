@@ -1,21 +1,22 @@
 // Saves options to chrome.storage
 function save_options() {
-    var ProgramAuto = document.getElementById('ProgramAuto').checked;
-    var ProgramDate = document.getElementById('ProgramDate').value;
-    var ProgramAreaAuto = document.getElementById('ProgramAreaAuto').checked;
-    var ProgramArea = document.getElementById('ProgramArea').value;
-    var tselect = document.getElementById("TicketNumber");
-    var TicketNumber = tselect.options[tselect.selectedIndex].value;
+    let ProgramAuto = document.getElementById('ProgramAuto').checked;
+    let ProgramDate = document.getElementById('ProgramDate').value;
+    let ProgramAreaAuto = document.getElementById('ProgramAreaAuto').checked;
+    let ProgramArea = document.getElementById('ProgramArea').value;
+    let tselect = document.getElementById("TicketNumber");
+    let TicketNumber = tselect.options[tselect.selectedIndex].value;
 
     chrome.storage.local.set({
         ProgramAuto,
         ProgramDate,
         ProgramAreaAuto,
         ProgramArea,
+        ProgramAreaList: ProgramArea.split(" "),
         TicketNumber
     }, function () {
         // Update status to let user know options were saved.
-        var status = document.getElementById('status');
+        let status = document.getElementById('status');
         status.textContent = 'Options saved.';
         setTimeout(function () {
             status.textContent = '';
