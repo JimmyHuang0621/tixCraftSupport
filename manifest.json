@@ -1,7 +1,7 @@
 {
 	"name": "tixCraft Support",
 	"description": "拓元輔助程式",
-	"version": "1.4.1",
+	"version": "1.4.2",
 	"permissions": [
 		"activeTab",
 		"storage"
@@ -12,18 +12,31 @@
 		]
 	},
 	"browser_action": {
-		"default_title": "拓元輔助"
+		"default_title": "拓元輔助",
+		"default_popup": "options.html"
 	},
-	"options_page": "options.html",
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	},
 	"content_scripts": [
+		{
+			"matches": [
+				"https://tixcraft.com/*"
+			],
+			"run_at": "document_end",
+			"js": [
+				"jquery.min.js",
+				"src/tixcraft/content.js"
+			]
+		},
 		{
 			"matches": [
 				"https://tixcraft.com/activity/detail/*"
 			],
 			"run_at": "document_end",
 			"js": [
-				"jquery.min.js",
-				"Script/detailScript.js"
+				"src/tixcraft/detail.js"
 			]
 		},
 		{
@@ -32,8 +45,7 @@
 			],
 			"run_at": "document_end",
 			"js": [
-				"jquery.min.js",
-				"Script/gameScript.js"
+				"src/tixcraft/game.js"
 			]
 		},
 		{
@@ -42,8 +54,7 @@
 			],
 			"run_at": "document_end",
 			"js": [
-				"jquery.min.js",
-				"Script/areaScript.js"
+				"src/tixcraft/area.js"
 			]
 		},
 		{
@@ -52,18 +63,7 @@
 			],
 			"run_at": "document_end",
 			"js": [
-				"jquery.min.js",
-				"Script/ticketScript.js"
-			]
-		},
-		{
-			"matches": [
-				"https://tixcraft.com/*"
-			],
-			"run_at": "document_end",
-			"js": [
-				"jquery.min.js",
-				"Script/contentScript.js"
+				"src/tixcraft/ticket.js"
 			]
 		}
 	],

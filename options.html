@@ -5,45 +5,15 @@
   <title>Extension Options</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/options.css" />
+  <script src="jquery.min.js"></script>
 </head>
 
 <body>
 
-  <h2>拓元輔助程式設定頁面<span id="ver"></span></h2>
-
-  <div>
-    <input type="checkbox" id="ProgramAuto" class='option' />
-    <label>自動點選節目</label>
-    <br>
-    <br>
-    <label>節目日期 :</label>
-    <br>
-    <input type="date" id="ProgramDate">
-    <br>
-    <br>
-    <input type="checkbox" id="ProgramAreaAuto" class='option' />
-    <label>自動點選區域</label>
-    <br>
-    <label>節目區域 :</label>
-    <br>
-    <input type="text" id="ProgramArea">
-    <br>
-    <br>
-    <label>張數選擇 :</label>
-    <br>
-    <select id="TicketNumber">
-      <option value="0">最大張數</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </select>
-  </div>
-
-  <div id="status"></div>
-  <br>
-  <button id="save">Save</button>
-  <script src="options.js"></script>
+  <h1>搶票輔助程式<span id="ver"></span></h1>
+  <main id="content"></main>
+  <script src="src/options/page.js"></script>
+  <script src="src/options/options.js"></script>
 </body>
 
 </html>
