@@ -26,7 +26,7 @@
 			],
 			"run_at": "document_end",
 			"js": [
-				"jquery.min.js",
+				"src/jquery/jquery.min.js",
 				"src/tixcraft/content.js"
 			]
 		},
