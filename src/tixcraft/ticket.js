@@ -1,7 +1,7 @@
 let data = document.getElementsByTagName('html')[0].innerHTML;
-$("#TicketForm_agree").prop('checked', true).prop('name', data.substr(data.indexOf("TicketForm[agree][", 10000), 63));
+$("#TicketForm_agree").prop('checked', true).prop('name', data.substr(data.indexOf("TicketForm[agree]["), 63));
 
-let data2 = data.substr(data.indexOf("#TicketForm_checked", 10000), 1000);
+let data2 = data.substr(data.indexOf("#TicketForm_checked"), 1000);
 $("#TicketForm_checked").prop('name', data2.substr(data2.indexOf("TicketForm[ticketPrice][", 100), 69));
 
 let $ticket_options = $("#TicketForm select option");
