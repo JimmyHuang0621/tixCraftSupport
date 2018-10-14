@@ -1,8 +1,18 @@
-let data = document.getElementsByTagName('html')[0].innerHTML;
-$("#TicketForm_agree").prop('checked', true).prop('name', data.substr(data.indexOf("TicketForm[agree]["), 63));
+let scripts = document.getElementsByTagName('script');
+for (let i = 0; i < scripts.length; i++) {
+  if (scripts[i].innerHTML.includes('TicketForm')) {
+    console.log('find TicketForm： ' + i)
+    let data = scripts[i].innerHTML,
+        agree_re = /TicketForm\[agree]\[(.{44})]/,
+        agree = agree_re.exec(data)[0],
+        ticketPrice_re = /TicketForm\[ticketPrice]\[(.{44})]/,
+        ticketPrice = ticketPrice_re.exec(data)[0]
 
-let data2 = data.substr(data.indexOf("#TicketForm_checked"), 1000);
-$("#TicketForm_checked").prop('name', data2.substr(data2.indexOf("TicketForm[ticketPrice][", 100), 69));
+    $("#TicketForm_agree").prop('checked', true).prop('name', agree);
+    $("#TicketForm_checked").prop('name', ticketPrice);
+    break;
+  }
+}
 
 let $ticket_options = $("#TicketForm select option");
 if ($ticket_options.length) {
@@ -10,7 +20,7 @@ if ($ticket_options.length) {
     TicketNumber: 0
   }, items => {
     let doSelect = false;
-    
+
     if (items.TicketNumber == 0) {
       console.log("hit last");
       $ticket_options.last().prop("selected", true);
